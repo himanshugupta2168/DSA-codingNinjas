@@ -1,0 +1,207 @@
+Power:_
+
+int power(int x, int n) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Return output and don't print it.
+     Taking input and printing output is handled automatically.
+  */
+    if (n==0)
+        return 1;
+    int smaller = power(x, n-1);
+    int bigger = x* smaller ;
+    return bigger ;
+    
+    
+        
+
+}
+_______________________________________________________________________________________________________
+Print Numbers:-
+void print(int n){
+    //write your code here
+    if(n==0)
+        return ;
+    print(n-1);
+    cout<<n<<' ';
+}
+_________________________________________________________________________________________________________
+Number of digits :-
+int count(int n){
+    //write your code here
+    if (n==0){              //base case 
+        return 0;
+    }
+    int x=0;     //count 
+    int small = count(n/10);//recursive relation 
+    x = small+1;// Performing task ;
+        
+    return x;
+}
+_____________________________________________________________________________________________________________
+Sum of Array :-
+int sum(int input[], int n) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Return output and don't print it.
+     Taking input and printing output is handled automatically.
+  */
+    if (n <=0){
+        return 0;    }
+    int smaller = input[n-1]+sum(input, n-1);
+    return smaller ;
+}
+_________________________________________________________________________________________________________________
+Check number :-
+bool checkNumber(int input[], int size, int x) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Return output and don't print it.
+     Taking input and printing output is handled automatically.
+  */
+    if (size <=0)
+        return 0;
+    if(x == input[size -1]){
+        return 1;
+    }
+    checkNumber(input,  size-1, x);
+
+}
+_________________________________________________________________________________________________________________
+First Index of Number :-
+int firstIndex(int input[], int size, int x) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Return output and don't print it.
+     Taking input and printing output is handled automatically.
+    
+  */  
+    
+    if (size<=0){// if the element is not present 
+        return -1;  
+    }
+    if (x == input[0])//if the element is present at the first index 
+        return 0;
+    int index = firstIndex(input+1,size-1,x );// RR relation 
+    if (index ==-1)
+        return -1;
+    else 
+        return index+1;//returning the index 
+}
+
+_____________________________________________________________________________________________________________________
+    Last Index Of Number :-
+    int lastIndex(int input[], int size, int x) {
+  /* Don't write main().
+     Don't read input, it is passed as function argument.
+     Return output and don't print it.
+     Taking input and printing output is handled automatically.
+  */
+    if(size<=0)
+        return -1;
+    if (input[size]==x)
+        return size;
+    lastIndex(input, size -1, x);
+
+}
+_______________________________________________________________________________________________________________________
+All Indices of Numbers :-
+int allIndexes(int input[], int size, int x, int output[]) {
+    if(size == 0){
+        return 0;
+    }
+	int m = allIndexes(input, size-1, x, output);
+    if(input[size - 1] == x){
+        output[m] = size-1;
+        return m+1;
+    }else{
+        return m;
+    }
+}
+________________________________________________________________________________________________________________________
+Multiplication (Recuursive):-
+int multiplyNumbers(int m, int n) {
+    // Write your code here
+    if(n <=0)
+        return 0;
+    int smaller =m +   multiplyNumbers(m, n-1);
+    return smaller ; 
+    
+
+}
+
+
+_______________________________________________________________________________________________________
+Count Zeros :-
+int countZerosHelper(int n) {
+    // Write your code here
+    if (n==0)
+        return 0;
+    int digit = n % 10;// finding the remainder 
+    if (digit ==0)
+        return countZerosHelper(n/10)+1;
+    return countZerosHelper(n/10);
+}
+
+
+int countZeros(int n){
+    if(n==0)
+        return 1;
+    
+    return countZerosHelper(n);
+}
+_______________________________________________________________________________________________________
+Geometric Sum:-
+double geometricSum(int k) {
+    // Write your code here
+    if (k==0)
+        return 1;
+    double sum = (1/ pow(2,k)) + geometricSum(k-1) ;
+    return sum ;
+    
+
+}
+
+_______________________________________________________________________________________________________
+Check Palindrome :-
+#include <cstring>
+
+bool checkPalindromeHelper(char input[], int s,  int e){
+    if (input [s]!= input[ e])
+        return 0;
+    if ( s< e+1)
+        return checkPalindromeHelper(input, s+1, e-1);
+    
+}
+
+
+
+
+bool checkPalindrome(char input[]) {
+    int n =strlen(input);
+    if (n==0)
+        return 0;
+    else 
+        return checkPalindromeHelper(input, 0 , n-1);
+    // Write your code here
+
+}
+
+
+_______________________________________________________________________________________________________
+Sum of Digits :-
+int sumOfDigits(int n) {
+    // Write your code here
+    if (n <=0)
+        return 0;
+    int digit = n %10;
+    return digit +sumOfDigits(n/10);
+
+}
+
+
+_______________________________________________________________________________________________________
+
+
+
+
